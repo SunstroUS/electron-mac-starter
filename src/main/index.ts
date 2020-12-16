@@ -7,9 +7,13 @@ let mainWindow: BrowserWindow | null
 
 const createMainWindow = () => {
   const window = new BrowserWindow({
+    backgroundColor: '#66000000',
     webPreferences: { nodeIntegration: true },
     width: 1200,
     height: 800,
+    vibrancy: 'appearance-based',
+    titleBarStyle: 'hidden',
+    trafficLightPosition: { x: 19, y: 37 },
   })
 
   if (isDevelopment) {
