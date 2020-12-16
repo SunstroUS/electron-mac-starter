@@ -1,0 +1,34 @@
+{
+  "name": "electron-mac-window",
+  "version": "1.0.0",
+  "description": "Start electron app to build mac apps with the Big Sur UI feel.",
+  "author": "sunstrous",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "cross-env NODE_ENV=production && electron-webpack --mode=production"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "electron": "^11.1.0",
+    "electron-webpack": "^2.8.2",
+    "electron-webpack-ts": "^4.0.1",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3",
+    "webpack": "4.44.2"
+  },
+  "electronWebpack": {
+    "main": {
+      "webpackConfig": "webpack.main.additions.js"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
