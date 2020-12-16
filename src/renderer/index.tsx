@@ -1,6 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const App = () => <h1>Hello world!</h1>
+import './index.css'
+import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(
+  <>
+    <div className="draggable-app-bar" />
+    <div className="app-container">
+      <App />
+    </div>
+  </>,
+  document.getElementById('app')
+)

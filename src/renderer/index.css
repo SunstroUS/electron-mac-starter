@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+}
+
+.draggable-app-bar {
+  position: absolute;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  z-index: 999;
+}
+
+.app-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.app {
+  margin-top: 50px;
+  color: white;
+  width: 500px;
+  height: 400px;
+}
