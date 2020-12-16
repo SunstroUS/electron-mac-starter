@@ -1,50 +1,52 @@
-import { app, BrowserWindow } from "electron";
-import { format as formatUrl } from "url";
-import * as path from "path";
+import { app, BrowserWindow } from 'electron'
+import { format as formatUrl } from 'url'
+import * as path from 'path'
 
-const isDevelopment = process.env.NODE_ENV !== "production";
-let mainWindow: BrowserWindow | null;
+const isDevelopment = process.env.NODE_ENV !== 'production'
+let mainWindow: BrowserWindow | null
 
 const createMainWindow = () => {
   const window = new BrowserWindow({
     webPreferences: { nodeIntegration: true },
-  });
+    width: 1200,
+    height: 800,
+  })
 
   if (isDevelopment) {
-    window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
+    window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`)
   } else {
     window.loadURL(
       formatUrl({
-        pathname: path.join(__dirname, "index.html"),
-        protocol: "file",
+        pathname: path.join(__dirname, 'index.html'),
+        protocol: 'file',
         slashes: true,
       })
-    );
+    )
   }
 
   if (isDevelopment) {
-    window.webContents.openDevTools();
+    window.webContents.openDevTools()
   }
 
-  window.on("close", () => {
-    app.quit();
-  });
+  window.on('close', () => {
+    app.quit()
+  })
 
-  return window;
-};
+  return window
+}
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
   }
-});
+})
 
-app.on("activate", () => {
+app.on('activate', () => {
   if (mainWindow === null) {
-    mainWindow = createMainWindow();
+    mainWindow = createMainWindow()
   }
-});
+})
 
-app.on("ready", () => {
-  mainWindow = createMainWindow();
-});
+app.on('ready', () => {
+  mainWindow = createMainWindow()
+})
